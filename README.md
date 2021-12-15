@@ -1,4 +1,4 @@
-# PhotoshopTranslate
+# psd-translate
 
 Translate layer names in .psd files from japanese to english
 
