@@ -8,7 +8,7 @@ edit dropPSDhere.bat and change "yourPythonPathHere" to your python install-path
 otherwise use 
 
 ```cmd
-Python -m python [relative/path/to/translate.py] [input_file_path1] [input_file_path2] ...
+Python [relative/path/to/translate.py] [input_file_path1] [input_file_path2] ...
 ```
 
 if a [input_file_path] doesn't end in .psd it will be ignored.
