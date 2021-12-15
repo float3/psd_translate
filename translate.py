@@ -4,7 +4,10 @@ import sys
 from external_tools.google_trans_new.google_trans_new import google_translator
 from external_tools.psd_tools import PSDImage
 
-##usage Python -m python translate.py input_file_path1 input_file_path2
+#usage: Python -m python translate.py [input_file_path1] [input_file_path2] ...
+#
+# if a [input_file_path] doesn't end in .psd it will be ignored 
+# you can specify as many as you want 
 
 if len(sys.argv) < 2:
     print ('No input file specified.')
