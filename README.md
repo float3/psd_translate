@@ -4,9 +4,9 @@ Translate layer names in .psd files from jp/cn/kr or specifically anything in th
 
 edit [L15](../blob/master/psd-translate.py#15) to change target language
 
-drop multiple .psd files onto the .bat file and translate all of them at once
+drop multiple .psd files onto the .exe file and translate all of them at once
 
-or start the .bat file regularly to translate all .psd files in the current directory
+or start the .exe file regularly to translate all .psd files in the current directory
 
 ```cmd
 Python [relative/path/to/psd-translate.py] [input_file_path1] [input_file_path2] ...
