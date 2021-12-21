@@ -26,64 +26,67 @@ filetouched = False
 layerindent = 0
 
 def printindent(printstr):
-    
-    global layerindent
+	
+	global layerindent
 
-    for x in range(layerindent):
-        printstr = '    ' + printstr
-    
-    print(printstr)
+	for x in range(layerindent):
+		printstr = '	' + printstr
+	
+	print(printstr)
 
 
 def translate_layer(layer):
-    
-    global filetouched
-    global layerindent
-    layerindent += 1
+	
+	global filetouched
+	global layerindent
+	layerindent += 1
 
-    if layer.is_group():
-        for sublayer in layer:
-            translate_layer(sublayer)
+	if layer.is_group():
+		for sublayer in layer:
+			translate_layer(sublayer)
 
-    if len(re.findall(regex, layer.name)) > 0:
-        layer.name = translator.translate(layer.name, lang)
-        filetouched = True
-        printindent('translated layer: ' + layer.name)
+	if len(re.findall(regex, layer.name)) > 0:
+		layer.name = translator.translate(layer.name, lang)
+		filetouched = True
+		printindent('translated layer: ' + layer.name)
 
-    layerindent -= 1
+	layerindent -= 1
 
 if len(sys.argv) > 2:
-    for i in sys.argv:
-        if i.endswith(".psd"):
+	for i in sys.argv:
+		if i.endswith(".psd"):
 
-            psd = PSDImage.open(i)
-            filetouched = False
-            print(i + " opened")
+			psd = PSDImage.open(i)
+			filetouched = False
+			print()
+			print(i + " opened")
 
-            for layer in psd:
-                translate_layer(layer)
+			for layer in psd:
+				translate_layer(layer)
 
-            if(filetouched):
-                psd.save(i)
-                print(i + " saved")
+			if(filetouched):
+				psd.save(i)
+				print(i + " saved")
 
 else:
-    print('No input file specified.')
-    print('translating all .psd files in directory.')
-    dir = os.getcwd()
-    print(dir)
-    onlyfiles = [f for f in listdir(dir) if isfile(join(dir, f))]
+	print('No input file specified.')
+	print('translating all .psd files in directory.')
+	dir = os.getcwd()
+	print(dir)
+	onlyfiles = [f for f in listdir(dir) if isfile(join(dir, f))]
 
-    for i in onlyfiles:
-        if i.endswith(".psd"):
+	for i in onlyfiles:
+		if i.endswith(".psd"):
 
-            psd = PSDImage.open(i)
-            filetouched = False
-            print(i + " opened")
-            
-            for layer in psd:
-                translate_layer(layer)
+			psd = PSDImage.open(i)
+			filetouched = False
+			print(i + " opened")
+			
+			for layer in psd:
+				translate_layer(layer)
 
-            if(filetouched):
-                psd.save(i)
-                print(i + " saved")
+			if(filetouched):
+				psd.save(i)
+				print(i + " saved")
+				print()
+os.system('pause')

@@ -58,9 +58,9 @@ I haven't tested just letting google translate handle the translation automatica
 replacing [L48-51](../blob/master/psd-translate.py#L48-L51) with
 
 ```py
-    layer.name = translator.translate(layer.name, lang)
-    filetouched = True
-    printindent('translated layer: ' + layer.name)
+	layer.name = translator.translate(layer.name, lang)
+	filetouched = True
+	printindent('translated layer: ' + layer.name)
 ```
 
 might also work
