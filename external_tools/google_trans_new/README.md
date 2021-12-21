@@ -1,28 +1,32 @@
 # google_trans_new
+
 ### Version 1.1.9
 
 A free and unlimited python API for google translate.  
 It's very easy to use and solve the problem that the old api which use tk value cannot be used.  
-This interface is for academic use only, please do not use it for commercial use.  
-  
-Version 1.1.9 have fixed url translate.
-Ps:
+This interface is for academic use only, please do not use it for commercial use.
+
+Version 1.1.9 have fixed url translate. Ps:
 If your get translations for different genders, it will return a list.
 https://support.google.com/translate/answer/9179237?p=gendered_translations&hl=zh-Hans&visit_id=637425624803913067-1347870216&rd=1
 ***
-  
-  
+
+
 Installation
 ====
+
 ```
 pip install google_trans_new
 ```
+
 ***
-  
-  
+
+
 Basic Usage
 =====
+
 ### Translate
+
 ```python
 from google_trans_new import google_translator  
   
@@ -31,11 +35,14 @@ translate_text = translator.translate('สวัสดีจีน',lang_tgt='en
 print(translate_text)
 -> Hello china
 ```
+
 ***
 
 Advanced Usage
 =====
-### Translate 
+
+### Translate
+
 ```python  
 from google_trans_new import google_translator  
 
@@ -51,7 +58,9 @@ translate_text = translator.translate('สวัสดีจีน',lang_tgt='zh
 print(translate_text)
 -> 你好中国
 ```
+
 ### Multithreading Translate
+
 ```python
 from google_trans_new import google_translator 
 from multiprocessing.dummy import Pool as ThreadPool
@@ -80,7 +89,9 @@ if __name__ == "__main__" :
       print("Translating %s sentences, a total of %s s"%(len(texts),time2 - time1))
 -> Translating 720 sentences, a total of 25.89591908454895 s 
 ```
+
 ### Detect
+
 ```python
 from google_trans_new import google_translator  
   
@@ -90,7 +101,9 @@ detect_result = detector.detect('สวัสดีจีน')
 print(detect_result)
 -> ['th', 'thai']
 ```
+
 ### Pronounce
+
 ```python
 from google_trans_new import google_translator  
   
@@ -99,19 +112,22 @@ Pronounce = translator.translate('สวัสดีจีน',lang_src='th',lan
 print(Pronounce)
 -> ['你好中国 ', 'S̄wạs̄dī cīn', 'Nǐ hǎo zhōngguó']
 ```
+
 ***
 
 Prerequisites
 ====
-* **Python >=3.6**  
-* **requests**  
-* **six**  
+
+* **Python >=3.6**
+* **requests**
+* **six**
+
 ***
-  
-  
+
+
 License
 ====
-google_trans_new is licensed under the MIT License. The terms are as follows:  
+google_trans_new is licensed under the MIT License. The terms are as follows:
 
 ```
 MIT License  
