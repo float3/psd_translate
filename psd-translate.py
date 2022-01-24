@@ -45,6 +45,10 @@ def translate_layer(layer):
 		for sublayer in layer:
 			translate_layer(sublayer)
 
+	if layer.has_clip_layers():
+		for cliplayer in layer._clip_layers:
+			translate_layer(cliplayer)
+
 	if len(re.findall(regex, layer.name)) > 0:
 		layer.name = translator.translate(layer.name, lang)
 		filetouched = True
