@@ -29,17 +29,17 @@ or use [build.bat](../master/build.bat)
 Python -m relative/path/to/psd-translate.py 'path/to/example.psd 'path/to/second/example.psd'
 ```
 
-or use [psd-translate.bat](../master/psd-translate.bat)
+or use [psd_translate.bat](../master/psd_translate.bat)
 
 ## editing
 
 ### target language
 
-adjust [lang](../master/psd-translate.py#L10) to change target language
+adjust [lang](../master/psd_translate.py#L11) to change target language
 
 ### source language
 
-currently translates anything in these unicode ranges. adjust [regex](../master/psd-translate.py#L21)
+currently translates anything in these unicode ranges. adjust [regex](../master/psd_translate.py#L22)
 
 ```py
 jp = u'[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u3400-\u4dbf]+'
@@ -53,17 +53,6 @@ kr = u'[\uac00-\ud7a3]+'
 # jp + cn + kr
 regex = u'[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u3400-\u4dbf\u3400-\u4DB5\u6300-\u77FF\u7800-\u8CFF\u8D00-\u9FCC\u2e80-\u2fd5\u3190-\u319f\u3400-\u4DBF\u4E00-\u9FCC\uF900-\uFAAD\uac00-\ud7a3]+'
 ```
-
-I haven't tested just letting google translate handle the translation automatically but
-replacing [L48-51](../master/psd-translate.py#L48-L51) with
-
-```py
-	layer.name = translator.translate(layer.name, lang)
-	filetouched = True
-	printindent('translated layer: ' + layer.name)
-```
-
-might also work
 
 # libraries used
 
