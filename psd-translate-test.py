@@ -1,9 +1,6 @@
 ﻿import re
-import os
-import sys
+
 from external_tools.google_trans_new.google_trans_new import google_translator
-from os import listdir
-from os.path import isfile, join
 
 #destination language
 lang = 'en'  # change this line to adjust output language
