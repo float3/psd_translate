@@ -1,3 +1,6 @@
 [submodule "external_tools/google_trans_new"]
 	path = external_tools/google_trans_new
 	url = https://github.com/lushan88a/google_trans_new.git
+[submodule "external_tools/psd_tools"]
+	path = external_tools/psd_tools
+	url = https://github.com/Float3/psd_tools.git
