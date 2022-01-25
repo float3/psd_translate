@@ -2,7 +2,7 @@
 import os
 import sys
 from external_tools.google_trans_new.google_trans_new import google_translator
-from external_tools.psd_tools import PSDImage
+from external_tools.psd_tools.src.psd_tools import PSDImage
 from os import listdir
 from os.path import isfile, join
 
