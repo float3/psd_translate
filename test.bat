@@ -1,3 +1,3 @@
 cd /d %~dp0
-Python -m psd-translate-test
+Python -m psd_translate_test
 pause

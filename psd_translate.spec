@@ -4,7 +4,7 @@
 block_cipher = None
 
 
-a = Analysis(['psd-translate.py'],
+a = Analysis(['psd_translate.py'],
              pathex=[],
              binaries=[],
              datas=[],
@@ -26,7 +26,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,  
           [],
-          name='psd-translate',
+          name='psd_translate',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
