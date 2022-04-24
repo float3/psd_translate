@@ -26,7 +26,7 @@ or use [build.bat](../master/build.bat)
 ### running it without building
 
 ```cmd
-Python -m relative/path/to/psd-translate.py 'path/to/example.psd 'path/to/second/example.psd'
+Python -m relative/path/to/psd-translate.py 'path/to/example.psd' 'path/to/second/example.psd'
 ```
 
 or use [psd_translate.bat](../master/psd_translate.bat)
