@@ -1,11 +1,11 @@
-﻿import os
+import os
 import re
 import sys
 from os import listdir
 from os.path import isfile, join
 
-from external_tools.google_trans_new.google_trans_new import google_translator
-from external_tools.psd_tools.src.psd_tools import PSDImage
+from google_trans_new import google_translator
+from psd_tools import PSDImage
 
 # destination language
 lang = 'en'  # change this line to adjust output language

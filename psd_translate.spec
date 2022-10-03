@@ -4,7 +4,7 @@
 block_cipher = None
 
 
-a = Analysis(['psd_translate.py'],
+a = Analysis(['src\psd_translate\psd_translate.py'],
              pathex=[],
              binaries=[],
              datas=[],

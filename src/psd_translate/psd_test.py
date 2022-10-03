@@ -1,8 +1,8 @@
-﻿import os
+import os
 from os import listdir
 from os.path import isfile, join
 
-from external_tools.psd_tools.src.psd_tools import PSDImage
+from psd_tools import PSDImage
 
 currentdir = os.getcwd()
 print(currentdir)

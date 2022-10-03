@@ -7,23 +7,31 @@ Translate any layer names in .psd files that contain jp/cn/kr chars to english
 drop multiple .psd files onto the .exe file and translate all of them at once or run the .exe file regularly to
 translate all .psd files in the current directory
 
-### building it yourself
-
-requirements
+## requirements
 
 ```cmd
-pip install pyinstaller
+python -m pip install psd-tools
+python -m pip install google_trans_new
 ```
 
-building
+## building it yourself
 
+with pyinstaller
 ```cmd
-pyinstaller --onefile --clean psd-translate.spec
+python -m pip install pyinstaller
+pyinstaller --onefile --clean psd_translate.spec
+```
+with nuitka
+```cmd
+python -m pip install nuitka
+python -m nuitka --follow-imports src/psd_translate/psd_translate.py
 ```
 
-or use [build.bat](../master/build.bat)
+or use:
+[build_pyinstaller.bat](../master/build_pyinstaller.bat)
+[build_nuitka.bat](../master/build_nuitka.bat)
 
-### running it without building
+## running it without building
 
 ```cmd
 Python -m relative/path/to/psd-translate.py 'path/to/example.psd' 'path/to/second/example.psd'

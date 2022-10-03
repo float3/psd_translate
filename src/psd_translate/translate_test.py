@@ -1,6 +1,6 @@
-﻿import re
+import re
 
-from external_tools.google_trans_new.google_trans_new import google_translator
+from google_trans_new import google_translator
 
 # destination language
 lang = 'en'  # change this line to adjust output language
