@@ -37,4 +37,4 @@ for i in onlyfiles:
         for layer in psd:
             layerdebug(layer)
 
-os.system('pause')
+os.system("pause")
