@@ -1,14 +1,14 @@
 name: Weekly
 
-# Ruff is installed unpinned and gains lints with every release, so it can go
-# red here without a commit to trigger CI.
+# Two things rot here without a commit to trigger CI: ruff, which is installed
+# unpinned and gains a lint with every release, and psd-tools, which is held
+# only by a lower bound and has already renamed things out from under this
+# repository.
 #
-# There is no job for the translation itself yet. src/psd_translate's two
-# scripts do not run against current dependencies: translate_test gets a 404
-# from google_trans_new, which is unmaintained and speaks an endpoint google
-# has retired, and psd_test calls has_fill() on a Group, which psd-tools no
-# longer has. Once those are fixed, a live job belongs here, the way
-# GoogleTranslate.NET's weekly run watches its own endpoint.
+# There is still no job for the translation itself: google_trans_new is
+# unmaintained and answers 404, so psd_translate cannot translate at all. A
+# live job belongs here once it speaks the endpoint directly, the way
+# GoogleTranslate.NET's weekly run watches its own.
 on:
   schedule:
     - cron: "17 6 * * 1"
@@ -42,3 +42,26 @@ jobs:
 
       - name: Lint
         run: ruff check .
+
+  psd:
+    name: Read a psd with current psd-tools
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+
+      - name: Install the requirements
+        run: pip install -r requirements.txt
+
+      # psd_test walks every layer of every .psd beside it, so it runs from
+      # tests/ and PYTHONPATH has to be absolute.
+      - name: Read the test psd
+        run: python -m psd_test
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src/psd_translate
+        working-directory: tests
